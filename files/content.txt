@@ -1,0 +1,10 @@
+<span> This is a test<!--##"#"#"#"#"#-->
+<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat condimentum eros.
+<strong> Available Commands </strong>
+home
+allsafe
+fsociety
+tralala
+<form><label> >beta code cadet$</label><input type="text"/></form>
+</span>
+
