@@ -12,6 +12,12 @@ body {
   font-size:16px;
 }
 
+#ascii {
+  width: 100%;
+  align: center;
+  text-align: center;
+}
+
 a {
   color: #0bc;
   text-decoration: none;
