@@ -6,28 +6,92 @@
     var text = '';
 
     // Array with screens to load
-    var pages = [{
+
+    // the first screen of the site, general info about the workshop
+    var index = [{
+        speed: 5,
+        url: "pages/welcome.txt"
+    }, {
+        speed: 20,
+        url: "pages/mr_robot.txt"
+    }];
+
+    // The description of the general game logic
+    var start = [{
         speed: 1,
         url: "files/content.txt"
     }, {
         speed: 20,
         url: "files/test1.txt"
-    }, {
-        speed: 1,
-        url: "files/test2.txt"
-    }, {
-        speed: 20,
-        url: "files/test3.txt",
-    }, {
-        speed: 1,
-        url: "files/test4.txt"
     }];
 
+    // Location Home
+    var home = [{
+        speed: 1,
+        url: "files/content.txt"
+    }, {
+        speed: 20,
+        url: "files/test1.txt"
+    }];
+
+    // Location Allsafe
+    var allsafe = [{
+        speed: 1,
+        url: "files/content.txt"
+    }, {
+        speed: 20,
+        url: "files/test1.txt"
+    }];
+
+    // Location psych
+    var psychiatrist = [{
+        speed: 1,
+        url: "files/content.txt"
+    }, {
+        speed: 20,
+        url: "files/test1.txt"
+    }];
+
+    // Location Hardware store
+    var hw_store = [{
+        speed: 1,
+        url: "files/content.txt"
+    }, {
+        speed: 20,
+        url: "files/test1.txt"
+    }];
+
+    // Location Tomaz_white
+    var tomaz_white_den = [{
+        speed: 1,
+        url: "files/content.txt"
+    }, {
+        speed: 20,
+        url: "files/test1.txt"
+    }];
+
+    // Location Old_acarde
+    var old_acarde = [{
+        speed: 1,
+        url: "files/content.txt"
+    }, {
+        speed: 20,
+        url: "files/test1.txt"
+    }];
+
+
     var views = {
-        pages : pages
+        // Command : array
+        index : index,
+        join_fsociety: start,
+        home: home,
+        allsafe: allsafe,
+        hw_store: hw_store,
+        tomaz_den: tomaz_white_den,
+        old_arcade: old_arcade
     };
 
-    var a = 'pages';
+    var a = 'index';
 
     renderView(views[a]);
     clearText();
