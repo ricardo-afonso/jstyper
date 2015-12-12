@@ -1,8 +1,8 @@
 body {
-  background-color: #000
+  background-color: #222228;
 }
 
-#console {
+#console{
   font-family: courier, monospace;
   color: #fff;
   width:80%;
@@ -12,7 +12,36 @@ body {
   font-size:16px;
 }
 
+#line {
+  font-family: courier, monospace;
+  color: #fff;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+  font-size:16px;
+
+}
+
+#error {
+  font-family: courier, monospace;
+  color: #fff;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+  font-size:16px;
+
+}
+
 #ascii {
+  width: 100%;
+  align: center;
+  text-align: center;
+  color: #A9B6BA;
+}
+
+.center {
   width: 100%;
   align: center;
   text-align: center;
@@ -32,35 +61,46 @@ a {
   color: #ff0096;
 }
 
-label{
+.cadet {
+  color: #FF3737;
+}
+
+.commands {
+  color: #FF3737;
+  display: block;
+  margin-left: 28px;
+}
+
+#fsoc {
+  font-size: 6pt;
+}
+
+/* ====================================================================== */
+ .user {
   padding-right: 10px;
   height:25px;
   font-size:14px;
   float:left
   font-weight:lighter;
   color: #23ef40;
-
+  display: inline !important;
 }
 
 
 input, input:focus {
   border:none;
-  background-color: #000;
+  background-color: #282B21;
   color: #fff;
   outline: none;
   font-family: courier, monospace;
   font-size: 16px;
+  border-left: transparent solid 1px;
+  margin:5px
 }
 
 #input, #input:focus {
   border:none;
-  background-color: #000;
+  background-color: #222228;
   color: #fff;
   outline: none;
-}
-
-input {
-  /*animation: blink-empty 1s infinite;*/
-  border-left: transparent solid 1px;
-  margin:5px
 }

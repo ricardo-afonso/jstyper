@@ -8,115 +8,147 @@
     // Array with screens to load
 
     // the first screen of the site, general info about the workshop
-    var index = [{
-        speed: 18,
+   var welcome = [{
+        speed: 90,
         url: "pages/welcome_ascii.txt"
     }, {
-        speed: 4,
+        speed: 40,
         url: "pages/welcome.txt"
     }];
 
-
-
     // The description of the general game logic
-  /*  var start = [{
-        speed: 5,
-        url: "files/content.txt"
-    }, {
+    var initial = [{
+        speed: 50,
+        url: "pages/mr_robot_ascii.txt"
+    },{
         speed: 20,
-        url: "files/test1.txt"
+        url: "pages/mr_robot.txt"
     }];
-/*
+
+    var initial2 = [{
+        speed: 50,
+        url: "pages/mr_reboot_ascii.txt"
+    },{
+        speed: 20,
+        url: "pages/mr_reboot.txt"
+    }];
+
+
     // Location Home
     var home = [{
-        speed: 1,
-        url: "files/content.txt"
+        speed: 20,
+        url: "pages/home_ascii.txt"
     }, {
         speed: 20,
-        url: "files/test1.txt"
+        url: "pages/home.txt"
     }];
 
     // Location Allsafe
     var allsafe = [{
-        speed: 1,
-        url: "files/content.txt"
+        speed: 20,
+        url: "pages/allsafe_ascii.txt"
     }, {
         speed: 20,
-        url: "files/test1.txt"
+        url: "pages/allsafe.txt"
     }];
 
     // Location psych
     var psychiatrist = [{
-        speed: 1,
-        url: "files/content.txt"
+        speed: 20,
+        url: "pages/psy_ascii.txt"
     }, {
         speed: 20,
-        url: "files/test1.txt"
+        url: "pages/psy_ascii.txt"
     }];
 
     // Location Hardware store
     var hw_store = [{
-        speed: 1,
-        url: "files/content.txt"
+        speed: 20,
+        url: "pages/hw_ascii.txt"
     }, {
         speed: 20,
-        url: "files/test1.txt"
+        url: "pages/hw_store.txt"
     }];
 
     // Location Tomaz_white
     var tomaz_white_den = [{
-        speed: 1,
-        url: "files/content.txt"
+        speed: 20,
+        url: "pages/tomaz_ascii.txt"
     }, {
         speed: 20,
-        url: "files/test1.txt"
+        url: "pages/tomaz.txt"
     }];
 
     // Location Old_acarde
     var old_arcade = [{
-        speed: 1,
-        url: "files/content.txt"
+        speed: 20,
+        url: "pages/old_ascii.txt"
     }, {
         speed: 20,
-        url: "files/test1.txt"
+        url: "pages/old_arcade.txt"
     }];
 
-*/
+
     var views = {
         // Command : array
-        index : index
-    //    join_fsociety: start,
-      /*  home: home,
+        index: welcome,
+        start: initial,
+        start2: initial2,
+        home: home,
         allsafe: allsafe,
         hw_store: hw_store,
         tomaz_den: tomaz_white_den,
-        old_arcade: old_arcade */
-    };
+        old_arcade: old_arcade
+     };
 
 
-    var a = 'index';
-    renderView(views[a]);
-    clearText();
 
-/*    $(document).ready(function() {
+     renderView(views.index).then(function() {
+       //clearText();
+       //renderView(views[a]);
+       createInput();
 
-        $('#cmd').keypress(function(event) {
-            //console.log(event);
-            if (event.keyCode === 13) {
-                  var a = $('#cmd').val();
 
-                  switch (a) {
-                    case "join_fsociety":
-                    renderView(views[a]);
-                    clearText();
-                  }
-            }
-        });
+     });
 
-    }); */
 
-  //  renderView(views[a]);
-  //  clearText();
+       function createInput() {
+         $(document).ready(function() {
+
+
+             var input = document.createElement("INPUT");
+             input.setAttribute("type", "text");
+             input.className = "commandline";
+             input.setAttribute("id", "input");
+             $("#line").append("<p class=\"user\">beta code cadet ~$</p>");
+             $("#line").append(input);
+
+             input.focus();
+
+             $(input).keypress(function(event) {
+
+
+                 if (event.keyCode === 13) {
+                      console.log(event.keyCode)
+                      var a = $('#input').val();
+
+                      console.log(typeof a, + "Text: " + a)
+                      if (views.hasOwnProperty(a)) {
+                        clearText();
+                        renderView(views[a]).then(function() {
+                          createInput();
+                        });
+                      } else {
+                        showError();
+                      }
+
+                    }
+
+
+             });
+         });
+       }
+
 
     // view is an array with filenames/speeds
     function renderView(view) {
@@ -128,9 +160,8 @@
             promises.push(start);
         });
 
-
         // execute all the promises in sequence
-        promises.reduce(function(previous, current, index) {
+        return promises.reduce(function(previous, current, index) {
 
             return previous.then(function() {
 
@@ -176,6 +207,7 @@
         index = 0;
 
         $('#console').html(text);
+        $("#line").html(text);
 
     }
 

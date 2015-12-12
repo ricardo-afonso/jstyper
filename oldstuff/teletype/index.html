@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+  <head>
+    <title>jQuery Teletype Plugin</title>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="telestyle.css" type="text/css">
+
+    <meta charset="UTF-8" />
+
+  </head>
+  <body>
+    <h1>jquery.teletype.js</h1>
+
+
+    <p class="type-text" title="jquery^1000  plugins.;jQuery\njQueryScript.net^2000 , character deletion~20; auto delete^2000 , customisable cursor;">:)</p>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="jquery.teletype.js"></script>
+    <script>
+    $( function() {
+      $( '.type-text' ).each( function() {
+        var items = $( this ).attr( 'title' ) + ';' + $( this ).text();
+        $( this ).empty().attr( 'title', '' ).teletype( {
+          text: $.map( items.split( ';' ), $.trim ),
+          typeDelay: 10,
+          backDelay: 20,
+          cursor: '▋',
+          delay: 3000,
+          preserve: false,
+          prefix: '[teletype ~]# ',
+          loop: 0
+        } );
+      } );
+    } );
+    </script>
+        <script type="text/javascript">
+
+
+
+</script>
+  </body>
+</html>
