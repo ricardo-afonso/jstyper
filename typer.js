@@ -8,13 +8,16 @@
     // Array with screens to load
 
     // the first screen of the site, general info about the workshop
-   var welcome = [{
-        speed: 90,
-        url: "pages/welcome_ascii.txt"
-    }, {
-        speed: 40,
-        url: "pages/welcome.txt"
-    }];
+    var welcome = [{
+         speed: 120,
+         url: "pages/fsoc.txt"
+     }, {
+         speed: 2,
+         url: "pages/welcome_ascii.txt"
+     } , {
+         speed: 4,
+         url: "pages/welcome.txt"
+     }];
 
     // The description of the general game logic
     var initial = [{
@@ -45,10 +48,10 @@
 
     // Location Allsafe
     var allsafe = [{
-        speed: 20,
+        speed: 15,
         url: "pages/allsafe_ascii.txt"
     }, {
-        speed: 20,
+        speed: 4,
         url: "pages/allsafe.txt"
     }];
 
@@ -129,17 +132,20 @@
 
 
                  if (event.keyCode === 13) {
-                      console.log(event.keyCode)
+                    //  console.log(event.keyCode)
                       var a = $('#input').val();
 
-                      console.log(typeof a, + "Text: " + a)
+                    //  console.log(typeof a + " Text: " + a)
                       if (views.hasOwnProperty(a)) {
                         clearText();
                         renderView(views[a]).then(function() {
                           createInput();
                         });
                       } else {
-                        showError();
+                        input.value = "";
+                        $("#error").html("");
+                        $("#error").append("<span class=\"err\"> > </span><span style=\"color:#aaa\"> Unrecognized command: \"" + a + "\" </span>");
+                        window.scrollBy(0, 30);
                       }
 
                     }
@@ -197,7 +203,7 @@
         $('#console').html(text.substring(0, index)); // replace the html contents of the given id, with the new content.
         index += speed; // increment the index
 
-        window.scrollBy(0, 50);
+        window.scrollBy(0, 8);
 
     }
 
@@ -208,6 +214,7 @@
 
         $('#console').html(text);
         $("#line").html(text);
+        $("#error").html(text);
 
     }
 

@@ -71,9 +71,34 @@ a {
   margin-left: 28px;
 }
 
-#fsoc {
-  font-size: 6pt;
+.logic {
+  display: block;
+  margin-left: 28px;
 }
+
+.highlight {
+  color: #45B555;
+
+}
+
+.red {
+  color: #FF3737;
+}
+
+#fsoc {
+  font-size: 9pt;
+  letter-spacing: 3px;
+}
+
+#fsoc2 {
+  font-size: 16pt;
+  color: #ddd;
+}
+
+.err {
+  color: #aaa;
+}
+
 
 /* ====================================================================== */
  .user {
